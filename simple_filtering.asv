@@ -1,0 +1,13 @@
+function Xf = simple_filtering(X)
+
+% Use for loop to convolve 15-sample half cosine with each row
+h = halfcos(15);
+Xf = conv(h, X(1,:));
+
+for i = 2:256
+    next_row = conv(h, X(i,:));
+    Xf = [Xf,next_row];
+end
+
+
+%Convolve all rows and trim in one command
