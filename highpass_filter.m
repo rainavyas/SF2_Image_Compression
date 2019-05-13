@@ -1,6 +1,6 @@
-function highpass_filter(X)
+function energy = highpass_filter(X)
    
-odd_filter_length = 25;
+odd_filter_length = 5;
 h = halfcos(odd_filter_length);
 
 
@@ -14,3 +14,12 @@ draw(low);
 %display high pass filtered image
 figure(101);
 draw(high);
+
+low_energy = sum(low(:).^2);
+high_energy = sum(high(:).^2);
+
+energy =[low_energy, high_energy];
+
+
+return
+
