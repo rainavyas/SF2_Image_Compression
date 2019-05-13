@@ -16,5 +16,6 @@ draw(C);
 
 %find difference between images
 diff = abs(R-C);
-val = sum(sum(diff));
+val = max(max(diff));
+
 return

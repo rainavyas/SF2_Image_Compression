@@ -1,0 +1,14 @@
+function highpass_filter(X)
+   
+odd_filter_length = 15;
+h = halfcos(odd_filter_length);
+
+
+low = conv2se(h,h,X);
+high = X - low;
+
+%display low pass filtered image
+figure(100);
+draw
+
+%display high pass filtered image

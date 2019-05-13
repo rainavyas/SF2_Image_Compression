@@ -11,6 +11,7 @@ if (nargin==1)
   map = [0:255]'*ones(1,3)*(1/255);
 end
 
+
 % adjust by an appropriate multiple of 128
 image(data-128*round(min(data(:))/128));
 
