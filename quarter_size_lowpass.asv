@@ -1,0 +1,3 @@
+function X1 = quarter_size_lowpass(X)
+
+% 
