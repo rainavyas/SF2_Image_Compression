@@ -8,6 +8,6 @@ h = [0.25, 0.5, 0.25];
 X_row_dec = rowdec(X, h);
 X1 = transpose(rowdec(transpose(X_row_dec), h));
 
-draw(X1)
+%draw(X1)
 
 return
