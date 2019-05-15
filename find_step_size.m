@@ -14,7 +14,8 @@ rms_error = std(X(:)-Z(:));
 X1 = quarter_size_lowpass(X);
 best = [1000, -1];
 
-for n = 1:40
+for m = 1:2000
+    n = m/100;
     Z0 = transpose(rowint(transpose(rowint(quantise(X1,n), 2*h)), 2*h)) + quantise(Y0,n);
     error = std(X(:)-Z0(:));
     if abs(error - rms_error) < abs(best(1) - rms_error)
@@ -27,7 +28,8 @@ step1 = best(2);
 X2 = quarter_size_lowpass(X1);
 best = [1000, -1];
 
-for n = 1:40
+for m = 1:2000
+    n = m/100;
     Z1 = transpose(rowint(transpose(rowint(quantise(X2,n), 2*h)), 2*h)) + quantise(Y1,n);
     Z0 = transpose(rowint(transpose(rowint(Z1, 2*h)), 2*h)) + quantise(Y0,n);
     error = std(X(:)-Z0(:));
@@ -41,7 +43,8 @@ step2 = best(2);
 X3 = quarter_size_lowpass(X2);
 best = [1000, -1];
 
-for n = 1:40
+for m = 1:2000
+    n= m/100;
     Z2 = transpose(rowint(transpose(rowint(quantise(X3,n), 2*h)), 2*h)) + quantise(Y2,n);
     Z1 = transpose(rowint(transpose(rowint(Z2, 2*h)), 2*h)) + quantise(Y1,n);
     Z0 = transpose(rowint(transpose(rowint(Z1, 2*h)), 2*h)) + quantise(Y0,n);
@@ -57,7 +60,8 @@ step3 = best(2);
 X4 = quarter_size_lowpass(X3);
 best = [1000, -1];
 
-for n = 1:40
+for m = 1:2000
+    n= m/100;
     Z3 = transpose(rowint(transpose(rowint(quantise(X4,n), 2*h)), 2*h)) + quantise(Y3,n);
     Z2 = transpose(rowint(transpose(rowint(Z3, 2*h)), 2*h)) + quantise(Y2,n);
     Z1 = transpose(rowint(transpose(rowint(Z2, 2*h)), 2*h)) + quantise(Y1,n);

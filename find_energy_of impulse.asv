@@ -1,0 +1,40 @@
+function [EY0, EY1, EY2, EY3, EX1, EX2, EX3, EX4] = find_energy_of impulse()
+
+%This function finds the energy of reconstructed image from pyramid with an
+%impulse of 100 in a layer of the pyramid (everthing else is zero)
+
+X = zeros(256);
+
+X1 = quarter_size_lowpass(X);
+Y0 = highpass_from_decimated_lowpass(X);
+
+X2 = quarter_size_lowpass(X1);
+Y1 = highpass_from_decimated_lowpass(X1);
+
+X3 = quarter_size_lowpass(X2);
+Y2 = highpass_from_decimated_lowpass(X2);
+
+X4 = quarter_size_lowpass(X3);
+Y3 = highpass_from_decimated_lowpass(X3);
+
+%impulse in Y0
+IY0 = add_impulse(Y0);
+Z0 = transpose(rowint(transpose(rowint(X1, 2*h)), 2*h)) + IY0;
+EY0 = sum(Z0()
+
+%impulse in X1
+
+%impulse in Y1
+
+%impulse in X2
+
+%impulse in Y2
+
+%impulse in X3
+
+%impulse in Y3
+
+%impulse in X4
+
+
+return
