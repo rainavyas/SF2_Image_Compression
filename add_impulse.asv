@@ -1,6 +1,0 @@
-function I = add_impulse(X)
-
-dim = size(X);
-len = dim(1);
-mid = len/2;
-

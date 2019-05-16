@@ -1,7 +1,7 @@
-function Y0 = highpass_from_decimated_lowpass(X)
+function Y0 = highpass_from_decimated_lowpass(X, h)
 
-h = [0.25, 0.5, 0.25];
-X1 = quarter_size_lowpass(X);
+%h = [0.25, 0.5, 0.25];
+X1 = quarter_size_lowpass(X, h);
 
 X1_row = rowint(X1, 2*h);
 X1_full = transpose(rowint(transpose(X1_row), 2*h));

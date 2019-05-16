@@ -5,17 +5,17 @@ function [EY0, EY1, EY2, EY3, EX1, EX2, EX3, EX4] = find_energy_of_impulse(h)
 
 X = zeros(256);
 
-X1 = quarter_size_lowpass(X);
-Y0 = highpass_from_decimated_lowpass(X);
+X1 = quarter_size_lowpass(X, h);
+Y0 = highpass_from_decimated_lowpass(X, h);
 
-X2 = quarter_size_lowpass(X1);
-Y1 = highpass_from_decimated_lowpass(X1);
+X2 = quarter_size_lowpass(X1, h);
+Y1 = highpass_from_decimated_lowpass(X1, h);
 
-X3 = quarter_size_lowpass(X2);
-Y2 = highpass_from_decimated_lowpass(X2);
+X3 = quarter_size_lowpass(X2, h);
+Y2 = highpass_from_decimated_lowpass(X2, h);
 
-X4 = quarter_size_lowpass(X3);
-Y3 = highpass_from_decimated_lowpass(X3);
+X4 = quarter_size_lowpass(X3, h);
+Y3 = highpass_from_decimated_lowpass(X3, h);
 
 %impulse in Y0
 IY0 = add_impulse(Y0);
