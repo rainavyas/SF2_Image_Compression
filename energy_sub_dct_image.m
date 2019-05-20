@@ -1,7 +1,6 @@
-function [E1, E2] = energy_sub_dct_image(X)
+function [E1, E2] = energy_sub_dct_image(X, N)
 
-Y = do_2D_dct(X);
-N=8;
+Y = do_2D_dct(X, N);
 G = regroup(Y,N)/N;
 
 sub1 = G(1:8, 1:8);
