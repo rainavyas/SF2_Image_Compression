@@ -1,0 +1,16 @@
+function bits = dwt_ent_mat_bits(dwtent)
+
+[rows cols] = size(dwtent);
+
+n = cols -1;
+bits = 0;
+
+for i = 1:n
+    size = 256/(2^i);
+    for j = 1:rows
+        bits = bits + (size^2)*dwtent(k,i);
+    end
+end
+
+%last low pass image
+size = 256/(2^n);
